@@ -83,25 +83,79 @@ body {
   transform: scale(1.1);
   background-color: #f94c6a;
 }
-.resultDisplay{
+.resultDisplay {
   background: #b197fc;
   width: fit-content;
   padding: 30px;
   border-radius: 5px;
   position: absolute;
-  display: flex;
   display: none;
   flex-direction: column;
   text-align: center;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 }
-.playAgain{
+.playAgain {
   padding: 10px;
   border-radius: 5px;
+  gap: 20px;
   outline: none;
   border: none;
   background: #ffffe0;
   font-size: 30px;
   cursor: pointer;
+  font-family: "Comfortaa", sans-serif;
+  transition: 0.4s ease-in-out;
+}
+.playAgain:hover {
+  transform: scale(1.1);
+}
+.resultVisible {
+  display: block;
+}
+
+@media (max-width: 580px) {
+  .mainScreen {
+    padding: 20px;
+  }
+
+  .startBTN {
+    font-size: 24px;
+    padding: 15px;
+  }
+
+  .gameContainer .title {
+    padding: 20px 0;
+    font-size: 28px;
+  }
+
+  .playerContainer {
+    flex-direction: column;
+  }
+
+  .info {
+    flex-direction: column;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .options {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .player{
+    margin: 0 10px 0 10px
+  }
+
+  .resultDisplay {
+    padding: 20px;
+  }
+
+  .playAgain {
+    padding: 8px;
+    font-size: 24px;
+  }
 }

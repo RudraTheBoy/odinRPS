@@ -8,6 +8,9 @@ const playerScoreDisplay = document.querySelector(".playerScoreDisplay");
 const compScoreDisplay = document.querySelector(".compScoreDisplay");
 const resultDisplay = document.querySelector(".resultDisplay");
 const winLoseText = document.querySelector(".condition");
+const playAgain = document.querySelector(".playAgain");
+playerScoreDisplay.textContent = 0;
+compScoreDisplay.textContent = 0;
 
 startBTN.addEventListener("click", () => {
   let audio = new Audio("sounds/click.wav");
@@ -39,23 +42,64 @@ function game() {
       }
       let randomNumber = Math.floor(Math.random() * 3 + 1);
       if (randomNumber === 1) {
+        //rock
         compChoiceDisplay.innerHTML = `<i class="fa-regular fa-hand-back-fist"></i>`;
       }
       if (randomNumber === 2) {
+        //paper
         compChoiceDisplay.innerHTML = `<i class="fa-regular fa-hand"></i>`;
       }
       if (randomNumber === 3) {
+        // scissor
         compChoiceDisplay.innerHTML = `<i class="fa-regular fa-hand-scissors"></i>`;
       }
-      if (playerChoiceDisplay.innerHTML === compChoiceDisplay.innerHTML) {
-        console.log("Tie");
+      if (
+        (randomNumber === 1 && Element.id === "scissor") || // Computer (Rock) beats Scissors
+        (randomNumber === 2 && Element.id === "rock") || // Computer (Paper) beats Rock
+        (randomNumber === 3 && Element.id === "paper") // Computer (Scissors) beats Paper
+      ) {
+        compScoreDisplay.textContent++;
+      } else if (
+        playerChoiceDisplay.textContent === compChoiceDisplay.textContent
+      ) {
       }
       if (
-        (Element.id === 'rock' && randomNumber === 3) ||
-        (Element.id === 'scissors' && randomNumber === 2) ||
-        (Element.id === 'paper' && randomNumber === 1)
+        (randomNumber === 3 && Element.id === "rock") || // Player (Rock) beats Scissors
+        (randomNumber === 1 && Element.id === "paper") || // Player (Paper) beats Rock
+        (randomNumber === 2 && Element.id === "scissor") // Player (Scissors) beats Paper
       ) {
-        console.log('You gained a point!');
+        playerScoreDisplay.textContent++;
+      }
+
+      if (parseInt(playerScoreDisplay.textContent) === 5) {
+        document.body.style.pointerEvents = "none";
+        resultDisplay.style.pointerEvents = "auto";
+        gameContainer.classList.add(
+          "animate__animated",
+          "animate__fadeOut",
+          "animate__delay-0.3s"
+        );
+        resultDisplay.classList.add(
+          "resultVisible",
+          "animate__animated",
+          "animate__fadeIn"
+        );
+        winLoseText.innerHTML = "You won!";
+      }
+      if (parseInt(compScoreDisplay.textContent) === 5) {
+        document.body.style.pointerEvents = "none";
+        resultDisplay.style.pointerEvents = "auto";
+        gameContainer.classList.add(
+          "animate__animated",
+          "animate__fadeOut",
+          "animate__delay-0.3s"
+        );
+        resultDisplay.classList.add(
+          "resultVisible",
+          "animate__animated",
+          "animate__fadeIn"
+        );
+        winLoseText.innerHTML = "You lost!";
       }
     });
   });

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/4f8fc51de1.js" crossorigin="anonymous"></script>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div class="mainScreen">
+        <button class="startBTN">Start Game</button>
+    </div>
+    <div class="gameContainer">
+        <h1 class="title">Rock Paper Scissor</h1>
+        <div class="info">
+                <div class="playerChoice">
+                    <h1 class="playerChoiceDisplay"><i class="fa-solid fa-question"></i></h1>
+                    <h1>Player: <span class="playerScoreDisplay">0</span></h1>
+                </div>
+                <div class="computerChoice">
+                    <h1 class="compChoiceDisplay"><i class="fa-solid fa-question"></i></h1>
+                    <h1>Computer: <span class="compScoreDisplay">0</span></h1>
+                </div>
+        </div>
+        <div class="playerContainer">
+            <div class="player">
+                <div class="options" id="player">
+                    <div class="rock playerMoves" id="rock" >
+                        <h2>Rock</h2>
+                        <i class="fa-regular fa-hand-back-fist"></i>
+                    </div>
+                    <div class="paper playerMoves" id="paper">
+                        <h2>Paper</h2>
+                        <i class="fa-regular fa-hand"></i>
+                    </div>
+                    <div class="scissor playerMoves" id="scissor">
+                        <h2>Scissor</h2>
+                        <i class="fa-regular fa-hand-scissors"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="resultDisplay">
+            <h1 class="condition"></h1>
+            <button class="playAgain" onclick="location.reload()">Play again</button>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

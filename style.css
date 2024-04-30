@@ -115,7 +115,9 @@ body {
 .resultVisible {
   display: block;
 }
-
+.moveInfo{
+  text-align: center;
+}
 @media (max-width: 580px) {
   .mainScreen {
     padding: 20px;

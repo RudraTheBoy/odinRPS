@@ -9,6 +9,8 @@ const compScoreDisplay = document.querySelector(".compScoreDisplay");
 const resultDisplay = document.querySelector(".resultDisplay");
 const winLoseText = document.querySelector(".condition");
 const playAgain = document.querySelector(".playAgain");
+const declaration = document.querySelector(".declaration");
+const reasoning = document.querySelector(".reasoning");
 playerScoreDisplay.textContent = 0;
 compScoreDisplay.textContent = 0;
 
@@ -44,14 +46,17 @@ function game() {
       if (randomNumber === 1) {
         //rock
         compChoiceDisplay.innerHTML = `<i class="fa-regular fa-hand-back-fist"></i>`;
+        compChoice = 'rock'
       }
       if (randomNumber === 2) {
         //paper
         compChoiceDisplay.innerHTML = `<i class="fa-regular fa-hand"></i>`;
+        compChoice = 'paper'
       }
       if (randomNumber === 3) {
         // scissor
         compChoiceDisplay.innerHTML = `<i class="fa-regular fa-hand-scissors"></i>`;
+        compChoice = 'scissor'
       }
       if (
         (randomNumber === 1 && Element.id === "scissor") || // Computer (Rock) beats Scissors
@@ -59,9 +64,13 @@ function game() {
         (randomNumber === 3 && Element.id === "paper") // Computer (Scissors) beats Paper
       ) {
         compScoreDisplay.textContent++;
+        reasoning.textContent = `${Element.id} loses against ${compChoice}`
+        declaration.innerHTML = "You may have lost this battle, but remember, you haven't lost the war!"
       } else if (
         playerChoiceDisplay.textContent === compChoiceDisplay.textContent
       ) {
+          declaration.innerHTML = "It's a tie!"
+          reasoning.innerHTML = `${Element.id} is equally as strong as ${compChoice}`
       }
       if (
         (randomNumber === 3 && Element.id === "rock") || // Player (Rock) beats Scissors
@@ -69,6 +78,8 @@ function game() {
         (randomNumber === 2 && Element.id === "scissor") // Player (Scissors) beats Paper
       ) {
         playerScoreDisplay.textContent++;
+        reasoning.textContent = `${Element.id} wins against ${compChoice}`
+        declaration.innerHTML = "You have won the battle, but not the war!"
       }
 
       if (parseInt(playerScoreDisplay.textContent) === 5) {

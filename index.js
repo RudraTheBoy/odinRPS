@@ -65,7 +65,7 @@ function game() {
       ) {
         compScoreDisplay.textContent++;
         reasoning.textContent = `${Element.id} loses against ${compChoice}`
-        declaration.innerHTML = "You may have lost this battle, but remember, you haven't lost the war!"
+        declaration.innerHTML = "You lost!"
       } else if (
         playerChoiceDisplay.textContent === compChoiceDisplay.textContent
       ) {
@@ -79,7 +79,7 @@ function game() {
       ) {
         playerScoreDisplay.textContent++;
         reasoning.textContent = `${Element.id} wins against ${compChoice}`
-        declaration.innerHTML = "You have won the battle, but not the war!"
+        declaration.innerHTML = "You won!"
       }
 
       if (parseInt(playerScoreDisplay.textContent) === 5) {
